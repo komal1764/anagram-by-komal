@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Anagram Checker by Komal</title>
+	
+	<style>
+		*{font-size:40px;font-family:"Gabriola";}
+		body{background-color:#ffe680;}
+		h1{background-color:black;color:white;width:60%;border-radius:30px;}
+	</style
+</head>
+<body>
+<center>
+	<h1>Anagram Checker</h1>
+	<form onsubmit="check()">
+	<input type ="text" placeholder="enter  string " id="s1">
+	<br/><br/>
+	<input type="text" placeholder="enter string " id ="s2">
+	<br/><br/>
+	<input type="submit" value="Check"/>
+	<h2 id="msg"/>
+	</form>
+
+	<script>
+	function check()
+	{
+		event.preventDefault();
+		let s1 = document.getElementById("s1");
+		let s2 = document.getElementById("s2");
+		let msg = document.getElementById("msg");
+		
+		if(s1.value.trim()=="")
+			{
+				alert("string cannot be empty");
+				msg.innerHTML="";
+				s1.focus();
+				return;
+			}
+	
+		if(s2.value.trim()=="")
+			{
+				alert(" string cannot be empty");
+				msg.innerHTML="";
+				s2.focus();
+				return;
+			}
+		let str1 = s1.value.toLowerCase();
+		let str2 = s2.value.toLowerCase();
+		
+		let nstr1 = str1.split("").sort().join("");
+		let nstr2 = str2.split("").sort().join("");
+		
+		if(nstr1==nstr2)
+			msg.innerHTML = "yes they are anagram";
+		else
+			msg.innerHTML = " no they are not anagram";
+	}
+	</script>
+	
+</center>
+</body>
+</html>
